@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>TITLE</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+
+	<!-- Font -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+	<!-- Stylesheets -->
+	<link href="/common-css/bootstrap.css" rel="stylesheet">
+	<link href="/common-css/ionicons.css" rel="stylesheet">
+	<link href="/single-post-2/css/styles.css" rel="stylesheet">
+	<link href="/single-post-2/css/responsive.css" rel="stylesheet">
+
+</head>
+<body >
+
+	<%- include('header'); -%>
+
+	<section class="comment-section center-text">
+		<div class="container">
+			<h4 style="padding-top: 5rem; padding-bottom: 2rem; font-size: 2rem;"><b>Login</b></h4>
+			<div class="row">
+
+				<div class="col-lg-2 col-md-0"></div>
+
+				<div class="col-lg-8 col-md-12">
+					<div class="comment-form">
+						<form method="post">
+							<div class="row">
+
+                <div class="col-sm-12">
+									<input name="name" rows="2" class="text-area-messge form-control"
+										placeholder="Enter your email" aria-required="true" aria-invalid="false"></input >
+								</div><!-- col-sm-12 -->
+								<div class="col-sm-12">
+									<input name="password" rows="2" class="text-area-messge form-control"
+										placeholder="Enter your password" aria-required="true" aria-invalid="false"></input >
+								</div><!-- col-sm-12 -->
+								<div class="col-sm-12">
+									<button class="submit-btn" type="submit" id="form-submit"><b>Login</b></button>
+								</div><!-- col-sm-12 -->
+
+							</div><!-- row -->
+						</form>
+					</div><!-- comment-form -->
+				</div><!-- col-lg-8 col-md-12 -->
+			</div><!-- row -->
+		</div><!-- container -->
+	</section>
+
+	<%- include('footer'); -%>
+
+	<!-- SCIPTS -->
+	<script src="/common-js/jquery-3.1.1.min.js"></script>
+	<script src="/common-js/tether.min.js"></script>
+	<script src="/common-js/bootstrap.js"></script>
+	<script src="/common-js/scripts.js"></script>
+
+</body>
+</html>

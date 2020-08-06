@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <!-- slider Area Start-->
+    <div class="slider-area ">
+        <!-- Mobile Menu -->
+        <div class="single-slider slider-height2 d-flex align-items-center" data-background="{% static './assets/img/hero/category.jpg' %}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap text-center">
+                            <h2>product Details</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- slider Area End-->
+
+  <!--================Single Product Area =================-->
+  <div class="product_image_area">
+    <div class="container">
+      <div class="row justify-content-center">
+
+          <div class="col-lg-8">
+            <div class="product_img_slide owl-carousel">
+              <div class="single_product_img">
+                <img src="{{product.cover_image.url}}" alt="#" class="img-fluid">
+              </div>
+              {% if product.image1%}
+              <div class="single_product_img">
+                <img src="{{product.image1.url}}" alt="#" class="img-fluid">
+              </div>
+              {% endif %}
+              {% if product.image2%}
+              <div class="single_product_img">
+                <img src="{{product.image2.url}}" alt="#" class="img-fluid">
+              </div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <div class="single_product_text text-center">
+              <h3>{{product.title}}</h3>
+              <p>{{product.description}}</p>
+              <div class="card_area">
+                  <div class="product_count_area">
+                      <p>Quantity</p>
+                      <div class="product_count d-inline-block">
+                          <span class="product_count_item inumber-decrement"> <i class="ti-minus"></i></span>
+                          <input class="product_count_item input-number" type="text" value="1" min="0" max="10">
+                          <span class="product_count_item number-increment"> <i class="ti-plus"></i></span>
+                      </div>
+                      <p>$5</p>
+                  </div>
+                <div class="add_to_cart">
+                    <a href="{% url 'cart:update_cart' product.slug %}" class="btn_3">add to cart</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+      </div>
+    </div>
+  </div>
+  <!--================End Single Product Area =================-->
+
+   <!-- Review part here -->
+   <section class="blog_area single-post-area section-padding">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-8 posts-list">
+               <div class="single-post">
+                  <div class="feature-img">
+                     <img class="img-fluid" src="{% static './assets/img/blog/single_blog_1.png' %}" alt="">
+                  </div>
+                  <div class="blog_details">
+                     <h2>Reviews and Ratings</h2>
+                     <ul class="blog-info-link mt-3 mb-4">
+                        <li href="#"><i class="fa fa-star"></i><span class="product-ratting">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star low-star"></i>
+                            <i class="far fa-star low-star"></i>
+                        </span></li>
+                        <li href="#"><i class="fa fa-user"></i> {{product.ratings_quantity}} Users Reviewed this</li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="comments-area">
+                  <h4>Top 05 Reviews</h4>
+                  <div class="comment-list">
+                     <div class="single-comment justify-content-between d-flex">
+                        <div class="user justify-content-between d-flex">
+                           <div class="thumb">
+                              <img src="{% static './assets/img/comment/comment_1.png' %}" alt="">
+                           </div>
+                           <div class="desc">
+                              <p class="comment">
+                                 Multiply sea night grass fourth day sea lesser rule open subdue female fill which them
+                                 Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
+                              </p>
+                              <div class="d-flex justify-content-between">
+                                 <div class="d-flex align-items-center">
+                                    <h5>
+                                       <a href="#">Emilly Blunt</a>
+                                    </h5>
+                                    <p class="date">December 4, 2017 at 3:12 pm </p>
+                                 </div>
+                                 <div class="reply-btn">
+                                    <a href="#" class="btn-reply text-uppercase">reply</a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="comment-list">
+                     <div class="single-comment justify-content-between d-flex">
+                        <div class="user justify-content-between d-flex">
+                           <div class="thumb">
+                              <img src="{% static './assets/img/comment/comment_2.png' %}" alt="">
+                           </div>
+                           <div class="desc">
+                              <p class="comment">
+                                 Multiply sea night grass fourth day sea lesser rule open subdue female fill which them
+                                 Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
+                              </p>
+                              <div class="d-flex justify-content-between">
+                                 <div class="d-flex align-items-center">
+                                    <h5>
+                                       <a href="#">Emilly Blunt</a>
+                                    </h5>
+                                    <p class="date">December 4, 2017 at 3:12 pm </p>
+                                 </div>
+                                 <div class="reply-btn">
+                                    <a href="#" class="btn-reply text-uppercase">reply</a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="comment-list">
+                     <div class="single-comment justify-content-between d-flex">
+                        <div class="user justify-content-between d-flex">
+                           <div class="thumb">
+                              <img src="{% static './assets/img/comment/comment_3.png' %}" alt="">
+                           </div>
+                           <div class="desc">
+                              <p class="comment">
+                                 Multiply sea night grass fourth day sea lesser rule open subdue female fill which them
+                                 Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
+                              </p>
+                              <div class="d-flex justify-content-between">
+                                 <div class="d-flex align-items-center">
+                                    <h5>
+                                       <a href="#">Emilly Blunt</a>
+                                    </h5>
+                                    <p class="date">December 4, 2017 at 3:12 pm </p>
+                                 </div>
+                                 <div class="reply-btn">
+                                    <a href="#" class="btn-reply text-uppercase">reply</a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+            </div>
+         </div>
+      </div>
+   </section>
+  <!-- Review part end -->
+
+{% endblock %}
