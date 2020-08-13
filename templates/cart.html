@@ -35,7 +35,7 @@
               </tr>
             </thead>
             <tbody>
-              
+
               {% for product in cart.products.all %}
                 <tr>
                   <td>
@@ -83,7 +83,7 @@
                   <h5>Subtotal</h5>
                 </td>
                 <td>
-                  <h5>$2160.00</h5>
+                  <h5>${{cart.subtotal_price}}</h5>
                 </td>
               </tr>
               <tr class="shipping_area">
