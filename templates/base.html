@@ -127,7 +127,13 @@
                                     <li>
                                         <div class="shopping-card">
                                             <a href="{% url 'cart:cart' %}"><i class="fas fa-shopping-cart"></i></a>
-                                            <span id="navbar-cart-items" class="count-style">01</span>
+                                            <span id="navbar-cart-items" class="count-style">
+                                              {% if not request.session.total_products %}
+                                                0
+                                              {% else %}
+                                                {{request.session.total_products}}
+                                              {% endif %}
+                                            </span>
                                         </div>
                                     </li>
                                    <li class="d-none d-lg-block"> <a href="login.html" class="btn header-btn">Sign in</a></li>

@@ -29,7 +29,7 @@
             <thead>
               <tr>
                 <th scope="col">Product</th>
-                <th scope="col">Price</th>
+                <th scope="col">Price Rate</th>
                 <th scope="col">Quantity</th>
                 <th scope="col">Total</th>
               </tr>
@@ -53,13 +53,16 @@
                   </td>
                   <td>
                     <div class="product_count">
-                      <span class="input-number-decrement"> <i class="ti-minus"></i></span>
+                      <span class="input-number-decrement"><i class="ti-minus"></i></span>
                       <input class="input-number" type="text" value="1" min="0" max="10">
-                      <span class="input-number-increment"> <i class="ti-plus"></i></span>
+                      <span class="input-number-increment"><i class="ti-plus"></i></span>
                     </div>
                   </td>
                   <td>
                     <h5>$720.00</h5>
+                  </td>
+                  <td>
+                    <a href="{% url 'cart:update_cart' product.slug %}"><h5>✕</h5></a>
                   </td>
                 </tr>
               {% endfor %}
