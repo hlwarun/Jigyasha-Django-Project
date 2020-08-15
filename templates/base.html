@@ -136,7 +136,12 @@
                                             </span>
                                         </div>
                                     </li>
-                                   <li class="d-none d-lg-block"> <a href="{% url 'users:register' %}" class="btn header-btn">Sign in</a></li>
+                                    {% if user.is_authenticated %}
+                                      <li class="d-none d-lg-block"> <a href="{% url 'users:login' %}" class="btn header-btn">{{user.first_name}}</a></li>
+                                      <li class="d-none d-lg-block"> <a href="{% url 'users:login' %}" class="btn header-btn">Logout</a></li>
+                                    {% else %}
+                                      <li class="d-none d-lg-block"> <a href="{% url 'users:login' %}" class="btn header-btn">Sign in</a></li>
+                                    {% endif %}
                                 </ul>
                             </div>
                             <!-- Mobile Menu -->
