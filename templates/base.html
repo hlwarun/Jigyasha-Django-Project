@@ -136,7 +136,7 @@
                                             </span>
                                         </div>
                                     </li>
-                                   <li class="d-none d-lg-block"> <a href="login.html" class="btn header-btn">Sign in</a></li>
+                                   <li class="d-none d-lg-block"> <a href="{% url 'users:register' %}" class="btn header-btn">Sign in</a></li>
                                 </ul>
                             </div>
                             <!-- Mobile Menu -->
@@ -152,6 +152,14 @@
     </header>
 
     <main>
+
+        {% if messages %}
+          {% for m in messages %}
+            <div style='text-align:center;' class="alert alert-{{m.tags}}">
+              {{ m }}
+            </div>
+          {% endfor %}
+        {% endif %}
 
         {% block content %}
         {% endblock %}
