@@ -46,3 +46,8 @@ def login(request):
             return redirect('users:login')
     else:
         return render(request, 'login.html')
+
+def logout(request):
+    auth.logout(request)
+    messages.success(request, 'You have been logged out of your account!')
+    return redirect('root:home')
