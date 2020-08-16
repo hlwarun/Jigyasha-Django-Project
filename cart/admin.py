@@ -1,5 +1,5 @@
 from django.contrib import admin
-from cart.models import Cart
+from cart.models import Cart, CartItem
 
 # Register your models here.
 
@@ -11,4 +11,13 @@ class CartAdmin(admin.ModelAdmin):
     class Meta:
         model = Cart
 
+class CartItemAdmin(admin.ModelAdmin):
+    date_hierarchy: 'added_at'
+    search_fields = ['added_at', 'product.title', 'id']
+    list_filter = ['added_at']
+    readonly_fields = ['product', 'quantity', 'added_at']
+    class Meta:
+        model = CartItem
+
 admin.site.register(Cart, CartAdmin)
+admin.site.register(CartItem, CartItemAdmin)

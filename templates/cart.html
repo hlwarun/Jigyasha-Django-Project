@@ -36,25 +36,25 @@
             </thead>
             <tbody>
 
-              {% for product in cart.products.all %}
+              {% for item in cart.items.all %}
                 <tr>
                   <td>
                     <div class="media">
                       <div class="d-flex">
-                        <img src="{{product.cover_image.url}}" alt="" />
+                        <img src="{{item.product.cover_image.url}}" alt="" />
                       </div>
                       <div class="media-body">
-                        <p>{{product.title}}</p>
+                        <p>{{item.product.title}}</p>
                       </div>
                     </div>
                   </td>
                   <td>
-                    <h5>${{product.new_price}}</h5>
+                    <h5>${{item.product.new_price}}</h5>
                   </td>
                   <td>
                     <div class="product_count">
                       <span class="input-number-decrement"><i class="ti-minus"></i></span>
-                      <input class="input-number" type="text" value="1" min="0" max="10">
+                      <input class="input-number" type="text" value="{{item.quantity}}" min="0" max="10">
                       <span class="input-number-increment"><i class="ti-plus"></i></span>
                     </div>
                   </td>

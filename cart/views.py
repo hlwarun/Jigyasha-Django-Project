@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.urls import reverse
 from shop.models import Product
-from cart.models import Cart
+from cart.models import Cart, CartItem
 
 # Create your views here.
 
@@ -35,20 +35,27 @@ def update_cart(request, slug):
     try:
         product = Product.objects.get(slug=slug)
     except:
-        raise
-    if not product in carts.products.all():
-        carts.products.add(product)
+        pass
+
+    cart_item, created = CartItem.objects.get_or_create(product=product)
+
+    if created:
+        print("Hello there")
+
+    if not cart_item in carts.items.all():
+        carts.items.add(cart_item)
     else:
-        carts.products.remove(product)
+        carts.items.remove(cart_item)
 
     sub_total = 0.00
     total = 0.00
     tax = 0.13
     shipping = 100 # Per item
-    for item in carts.products.all():
-        sub_total += float(item.new_price)
+    for item in carts.items.all():
+        each_total = float(item.product.new_price) * item.quantity
+        sub_total += each_total
         total += (float(item.new_price))*(1 + tax) + shipping
-    request.session['total_products'] = carts.products.count()
+    request.session['total_products'] = carts.items.count()
     carts.subtotal_price = sub_total
     carts.total_price = total
     carts.save()
