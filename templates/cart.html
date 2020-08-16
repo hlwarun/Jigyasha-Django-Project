@@ -36,7 +36,7 @@
             </thead>
             <tbody>
 
-              {% for item in cart.items.all %}
+              {% for item in cart.cartitem_set.all %}
                 <tr>
                   <td>
                     <div class="media">
@@ -62,7 +62,7 @@
                     <h5>$720.00</h5>
                   </td>
                   <td>
-                    <a href="{% url 'cart:update_cart' product.slug %}"><h5>✕</h5></a>
+                    <a href="{% url 'cart:update_cart' item.product.slug %}"><h5>✕</h5></a>
                   </td>
                 </tr>
               {% endfor %}
