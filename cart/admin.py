@@ -7,7 +7,7 @@ class CartAdmin(admin.ModelAdmin):
     date_hierarchy = 'created_at'
     search_fields = ['updated_at', 'created_at', 'id']
     list_filter = ['created_at', 'updated_at']
-    readonly_fields = ['subtotal_price', 'total_price', 'created_at', 'updated_at']
+    readonly_fields = ['subtotal_price', 'tax_price', 'shipping_price' , 'total_price', 'created_at', 'updated_at']
     class Meta:
         model = Cart
 

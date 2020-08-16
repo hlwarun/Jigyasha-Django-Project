@@ -16,8 +16,10 @@ class CartItem(models.Model):
 class Cart(models.Model):
     # products = models.ManyToManyField(Product, blank=True)
     # items = models.ManyToManyField(CartItem, blank=True)
-    subtotal_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
-    total_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    subtotal_price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    shipping_price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    tax_price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    total_price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     created_at = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated_at = models.DateTimeField(auto_now_add=False, auto_now=True)
 

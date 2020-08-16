@@ -62,12 +62,12 @@
                     <h5>$720.00</h5>
                   </td>
                   <td>
-                    <a href="{% url 'cart:update_cart' item.product.slug %}"><h5>✕</h5></a>
+                    <a href="{% url 'cart:update_cart' item.product.slug %}?qunty=0"><h5>✕</h5></a>
                   </td>
                 </tr>
               {% endfor %}
 
-              <tr class="bottom_button">
+              <!-- <tr class="bottom_button">
                 <td>
                   <a class="btn_1" href="#">Update Cart</a>
                 </td>
@@ -78,7 +78,7 @@
                     <a class="btn_1" href="#">Close Coupon</a>
                   </div>
                 </td>
-              </tr>
+              </tr> -->
               <tr>
                 <td></td>
                 <td></td>
@@ -96,6 +96,10 @@
                   <h5>Shipping</h5>
                 </td>
                 <td>
+                  <h5>${{cart.shipping_price}}</h5>
+                </td>
+
+                <!-- <td>
                   <div class="shipping_box">
                     <ul class="list">
                       <li>
@@ -132,12 +136,32 @@
                     <input class="post_code" type="text" placeholder="Postcode/Zipcode" />
                     <a class="btn_1" href="#">Update Details</a>
                   </div>
+                </td> -->
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td>
+                  <h5>Tax</h5>
+                </td>
+                <td>
+                  <h5>${{cart.tax_price}}</h5>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td>
+                  <h5><strong>Grand Total</strong></h5>
+                </td>
+                <td>
+                  <h5><strong>${{cart.total_price}}</strong></h5>
                 </td>
               </tr>
             </tbody>
           </table>
           <div class="checkout_btn_inner float-right">
-            <a class="btn_1" href="#">Continue Shopping</a>
+            <a class="btn_1" href="{% url 'shop:product' %}">Continue Shopping</a>
             <a class="btn_1 checkout_btn_1" href="#">Proceed to checkout</a>
           </div>
         </div>

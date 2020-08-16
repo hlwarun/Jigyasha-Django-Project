@@ -18,7 +18,7 @@ def carts(request):
         context = {}
     return render(request, 'cart.html', context)
 
-def update_cart(request, slug, qunty):
+def update_cart(request, slug):
     request.session.set_expiry(123456)
     # Check if a cart already exists
     try:
@@ -44,13 +44,25 @@ def update_cart(request, slug, qunty):
     # else:
     #     carts.items.remove(cart_item)
 
-    if (qunty == 0):
-        cart_item.delete(cart_item)
+    try:
+        qunty = request.GET.get('qunty')
+        update_qunty = True
+    except:
+        qunty = None
+        update_qunty = False
+
+    if (qunty and update_qunty):
+        if (int(qunty) == 0):
+            cart_item.delete()
+        else:
+            cart_item.quantity = qunty
+            cart_item.save()
     else:
-        cart_item.quantity = qunty
-        cart_item.save()
+        pass
 
     sub_total = 0.00
+    tax_total = 0.00
+    shipping_total = 0.00
     total = 0.00
     tax = 0.13
     shipping = 100 # Per item
@@ -58,9 +70,13 @@ def update_cart(request, slug, qunty):
     # cartitem_set is associated with the ForeignKey relations
         each_total = float(item.product.new_price) * item.quantity
         sub_total += each_total
-        total += (float(item.product.new_price))*(1 + tax) + shipping
+        tax_total += (float(item.product.new_price))* tax * item.quantity
+        shipping_total += shipping * item.quantity
+        total += ((float(item.product.new_price))*(1 + tax) + shipping) * item.quantity
     request.session['total_products'] = carts.cartitem_set.count()
     carts.subtotal_price = sub_total
+    carts.tax_price = tax_total
+    carts.shipping_price = shipping_total
     carts.total_price = total
     carts.save()
     return HttpResponseRedirect(reverse('cart:cart'))

@@ -47,18 +47,20 @@
               <h3>{{product.title}}</h3>
               <p>{{product.description}}</p>
               <div class="card_area">
-                  <div class="product_count_area">
-                      <p>Quantity</p>
-                      <div class="product_count d-inline-block">
-                          <span class="product_count_item inumber-decrement"> <i class="ti-minus"></i></span>
-                          <input class="product_count_item input-number" type="text" value="1" min="0" max="10">
-                          <span class="product_count_item number-increment"> <i class="ti-plus"></i></span>
-                      </div>
-                      <p>$5</p>
-                  </div>
-                <div class="add_to_cart">
-                    <a href="{% url 'cart:update_cart' product.slug %}" class="btn_3">add to cart</a>
-                </div>
+                  <form action="{% url 'cart:update_cart' product.slug %}" method="GET">
+                    <div class="product_count_area">
+                        <p>Quantity</p>
+                        <div class="product_count d-inline-block">
+                            <span class="product_count_item inumber-decrement"> <i class="ti-minus"></i></span>
+                            <input class="product_count_item input-number" name='qunty' type="text" value="1" min="0" max="10">
+                            <span class="product_count_item number-increment"> <i class="ti-plus"></i></span>
+                        </div>
+                        <p>$5</p>
+                    </div>
+                    <div class="add_to_cart">
+                        <input class="btn_3" type="submit" name="" value="add to cart">
+                    </div>
+                  </form>
               </div>
             </div>
           </div>
