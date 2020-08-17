@@ -44,7 +44,7 @@
                         <img src="{{item.product.cover_image.url}}" alt="" />
                       </div>
                       <div class="media-body">
-                        <p>{{item.product.title}}</p>
+                        <a href="{% url 'shop:detail' item.product.slug %}"><p>{{item.product.title}}</p></a>
                       </div>
                     </div>
                   </td>

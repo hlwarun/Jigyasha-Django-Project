@@ -9300,7 +9300,8 @@ input:focus {
 
 /* line 1, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_subscribe_part.scss */
 .subscribe_part {
-  background-color: #191d34;
+  margin-top: 100px;
+  background-color: #DCDCDC;
 }
 
 /* line 3, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_subscribe_part.scss */
@@ -9310,7 +9311,7 @@ input:focus {
 
 /* line 5, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_subscribe_part.scss */
 .subscribe_part .subscribe_part_content h2 {
-  color: #fff;
+  color: #000;
 }
 
 @media (max-width: 991px) {
@@ -9329,7 +9330,7 @@ input:focus {
 
 /* line 14, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_subscribe_part.scss */
 .subscribe_part .subscribe_part_content p {
-  color: #fff;
+  color: #000;
 }
 
 /* line 18, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_subscribe_part.scss */
@@ -9345,7 +9346,7 @@ input:focus {
   border: 1px solid #fff;
   width: 100%;
   background-color: transparent;
-  color: #fff;
+  color: #000;
   border-radius: 50px;
   padding: 19px 30px;
   line-height: 20px;
@@ -9370,7 +9371,7 @@ input:focus {
 
 /* line 43, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_subscribe_part.scss */
 .subscribe_part .subscribe_form ::placeholder {
-  color: #E4D3DF;
+  color: #000;
 }
 
 /***************** product list css *******************/
