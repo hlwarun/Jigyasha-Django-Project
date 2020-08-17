@@ -46,10 +46,14 @@ def update_cart(request, slug):
 
     try:
         qunty = request.GET.get('qunty')
+        sizes = request.GET.get('sizes')
         update_qunty = True
+        update_sizes = True
     except:
         qunty = None
+        sizes = None
         update_qunty = False
+        update_sizes = False
 
     if (qunty and update_qunty):
         if (int(qunty) == 0):
@@ -57,6 +61,12 @@ def update_cart(request, slug):
         else:
             cart_item.quantity = qunty
             cart_item.save()
+    else:
+        pass
+
+    if (sizes and update_sizes):
+        cart_item.size = sizes
+        cart_item.save()
     else:
         pass
 

@@ -7,6 +7,7 @@ class CartItem(models.Model):
     cart = models.ForeignKey('Cart', on_delete=models.CASCADE)
     # We closed the Cart in Inverted Comma because Cart represents the class that is not yet defined.
     quantity = models.IntegerField(default=1)
+    size = models.IntegerField(default=39)
     single_total = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     added_at = models.DateTimeField(auto_now_add=False, auto_now=True)
 
@@ -14,8 +15,6 @@ class CartItem(models.Model):
         return str(self.cart.id)
 
 class Cart(models.Model):
-    # products = models.ManyToManyField(Product, blank=True)
-    # items = models.ManyToManyField(CartItem, blank=True)
     subtotal_price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     shipping_price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     tax_price = models.DecimalField(max_digits=10, decimal_places=2, default=0)

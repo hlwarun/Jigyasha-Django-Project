@@ -15,7 +15,7 @@ class CartItemAdmin(admin.ModelAdmin):
     date_hierarchy: 'added_at'
     search_fields = ['added_at', 'product.title', 'id']
     list_filter = ['added_at']
-    readonly_fields = ['product', 'cart', 'quantity', 'single_total', 'added_at']
+    readonly_fields = ['product', 'cart', 'quantity', 'size', 'single_total', 'added_at']
     class Meta:
         model = CartItem
 
