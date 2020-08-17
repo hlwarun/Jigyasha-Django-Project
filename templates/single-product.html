@@ -49,13 +49,26 @@
               <div class="card_area">
                   <form action="{% url 'cart:update_cart' product.slug %}" method="GET">
                     <div class="product_count_area">
-                        <p>Quantity</p>
+                        <!-- <p>Quantity</p> -->
                         <div class="product_count d-inline-block">
                             <span class="product_count_item inumber-decrement"><i class="ti-minus"></i></span>
                             <input class="product_count_item input-number" name='qunty' type="text" value="1" min="0" max="10">
                             <span class="product_count_item number-increment"><i class="ti-plus"></i></span>
                         </div>
-                        <p>$5</p>
+                        <!-- <p>$5</p> -->
+                    </div>
+                    <p></p>
+                    <div class="product_count d-inline-block">
+                      <select class="shipping_select section_bg">
+                        <option value="1">Select Your Size</option>
+                        <option value="2">36</option>
+                        <option value="4">37</option>
+                        <option value="4">38</option>
+                        <option value="4">39</option>
+                        <option value="4">40</option>
+                        <option value="4">41</option>
+                        <option value="4">42</option>
+                      </select>
                     </div>
                     <div class="add_to_cart">
                         <input class="btn_3" type="submit" name="" value="add to cart">
