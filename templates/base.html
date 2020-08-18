@@ -240,7 +240,7 @@
                         <div class="single-footer-caption mb-30">
                              <!-- logo -->
                             <div class="footer-logo">
-                                <a href="index.html"><img src="{% static './assets/img/logo/logo1.png' %}" alt=""></a>
+                                <a href="{% url 'root:home' %}"><img src="{% static './assets/img/logo/logo1.png' %}" alt=""></a>
                             </div>
                             <div class="footer-tittle">
                                 <div class="footer-pera">
@@ -256,8 +256,8 @@
                                <h4>Quick Links</h4>
                                <ul>
                                    <li><a href="{% url 'about:about' %}">About</a></li>
-                                   <li><a href="#"> Offers & Discounts</a></li>
-                                   <li><a href="#"> Get Coupon</a></li>
+                                   <!-- <li><a href="#"> Offers & Discounts</a></li>
+                                   <li><a href="#"> Get Coupon</a></li> -->
                                    <li><a href="{% url 'contact:contact' %}">  Contact Us</a></li>
                                </ul>
                            </div>
@@ -295,7 +295,7 @@
                <div class="row">
                 <div class="col-xl-7 col-lg-7 col-md-7">
                     <div class="footer-copy-right">
-                        <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> | Jigyasha Digitals | All rights reserved.</p>
+                        <p>Copyright &copy; <script>document.write(new Date().getFullYear());</script> | Jigyasha Digitals | All rights reserved.</p>
                     </div>
                 </div>
                  <div class="col-xl-5 col-lg-5 col-md-5">

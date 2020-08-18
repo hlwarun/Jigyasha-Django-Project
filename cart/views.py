@@ -12,6 +12,25 @@ def carts(request):
         new_id = None
     if new_id:
         carts = Cart.objects.get(id=new_id)
+        sub_total = 0.00
+        tax_total = 0.00
+        shipping_total = 0.00
+        total = 0.00
+        tax = 0.13
+        shipping = 100 # Per item
+        for item in carts.cartitem_set.all():
+        # cartitem_set is associated with the ForeignKey relations
+            each_total = float(item.product.new_price) * item.quantity
+            sub_total += each_total
+            tax_total += (float(item.product.new_price))* tax * item.quantity
+            shipping_total += shipping * item.quantity
+            total += ((float(item.product.new_price))*(1 + tax) + shipping) * item.quantity
+        request.session['total_products'] = carts.cartitem_set.count()
+        carts.subtotal_price = sub_total
+        carts.tax_price = tax_total
+        carts.shipping_price = shipping_total
+        carts.total_price = round(total, 2)
+        carts.save()
         context = {'cart':carts}
     else:
         # You may pass a message "Your Cart is Empty!" as context if you want
@@ -70,23 +89,4 @@ def update_cart(request, slug):
     else:
         pass
 
-    sub_total = 0.00
-    tax_total = 0.00
-    shipping_total = 0.00
-    total = 0.00
-    tax = 0.13
-    shipping = 100 # Per item
-    for item in carts.cartitem_set.all():
-    # cartitem_set is associated with the ForeignKey relations
-        each_total = float(item.product.new_price) * item.quantity
-        sub_total += each_total
-        tax_total += (float(item.product.new_price))* tax * item.quantity
-        shipping_total += shipping * item.quantity
-        total += ((float(item.product.new_price))*(1 + tax) + shipping) * item.quantity
-    request.session['total_products'] = carts.cartitem_set.count()
-    carts.subtotal_price = sub_total
-    carts.tax_price = tax_total
-    carts.shipping_price = shipping_total
-    carts.total_price = total
-    carts.save()
     return HttpResponseRedirect(reverse('cart:cart'))
