@@ -15,8 +15,8 @@ class BillingAdmin(admin.ModelAdmin):
     date_hierarchy = 'date_added'
     search_fields = ['user', 'first_name', 'last_name']
     list_filter = ['date_added']
-    readonly_fields = ['first_name', 'last_name', 'company_name', 'phone', 'email', 'country', 'province',
-                        'district', 'city', 'address_line_01', 'address_line_02', 'zip_code', 'order_notes', 'date_added']
+    readonly_fields = ['user', 'first_name', 'last_name', 'company_name', 'phone', 'email', 'country', 'province',
+                       'district', 'city', 'address_line_01', 'address_line_02', 'zip_code', 'order_notes', 'date_added']
     class Meta:
         model = BillingAddress
 

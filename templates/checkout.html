@@ -61,70 +61,61 @@
         <div class="row">
           <div class="col-lg-8">
             <h3>Billing Details</h3>
-            <form class="row contact_form" action="#" method="post" novalidate="novalidate">
+
+            <form class="row contact_form" action="" method="post" novalidate="novalidate">
+              {% csrf_token %}
               <div class="col-md-6 form-group p_star">
-                <input type="text" class="form-control" id="first" name="first-name" />
-                <span class="placeholder" data-placeholder="First name"></span>
+                {{form.first_name}}
+                <!-- <span class="placeholder" data-placeholder="First name"></span> -->
               </div>
               <div class="col-md-6 form-group p_star">
-                <input type="text" class="form-control" id="last" name="last-name" />
-                <span class="placeholder" data-placeholder="Last name"></span>
+                {{form.last_name}}
+                <!-- <span class="placeholder" data-placeholder="Last name"></span> -->
               </div>
               <div class="col-md-12 form-group">
-                <input type="text" class="form-control" id="company" name="company" placeholder="Company name" />
+                {{form.company_name}}
               </div>
               <div class="col-md-6 form-group p_star">
-                <input type="text" class="form-control" id="number" name="number" />
-                <span class="placeholder" data-placeholder="Phone number"></span>
+                {{form.phone}}
+                <!-- <span class="placeholder" data-placeholder="Phone number"></span> -->
               </div>
               <div class="col-md-6 form-group p_star">
-                <input type="text" class="form-control" id="email" name="compemailany" />
-                <span class="placeholder" data-placeholder="Email Address"></span>
+                {{form.email}}
+                <!-- <span class="placeholder" data-placeholder="Email Address"></span> -->
               </div>
               <div class="col-md-12 form-group p_star">
                 <p>Country * :</p>
-                <select class="country_select">
-                  <option value="Nepal">Nepal</option>
-                </select>
+                {{form.country}}
               </div>
               <div class="col-md-12 form-group p_star">
                 <p>Province * :</p>
-                <select class="country_select">
-                  <option value="01">01</option>
-                  <option value="02">02</option>\
-                  <option value="03">03</option>
-                  <option value="04">04</option>
-                  <option value="05">05</option>
-                  <option value="06">06</option>
-                  <option value="07">07</option>
-                </select>
+                {{form.province}}
               </div>
               <div class="col-md-12 form-group p_star">
-                <input type="text" class="form-control" id="city" name="city" />
-                <span class="placeholder" data-placeholder="District"></span>
+                {{form.district}}
+                <!-- <span class="placeholder" data-placeholder="District"></span> -->
               </div>
               <div class="col-md-12 form-group p_star">
-                <input type="text" class="form-control" id="city" name="district" />
-                <span class="placeholder" data-placeholder="Town/City"></span>
+                {{form.city}}
+                <!-- <span class="placeholder" data-placeholder="Town/City"></span> -->
               </div>
               <div class="col-md-12 form-group p_star">
-                <input type="text" class="form-control" id="add1" name="street" />
-                <span class="placeholder" data-placeholder="Address Line 01 (Street)"></span>
+                {{form.address_line_01}}
+                <!-- <span class="placeholder" data-placeholder="Address Line 01 (Street)"></span> -->
               </div>
               <div class="col-md-12 form-group">
-                <input type="text" class="form-control" id="company" name="add2" placeholder="Address Line 02" />
+                {{form.address_line_02}}
               </div>
               <div class="col-md-12 form-group">
-                <input type="text" class="form-control" id="zip" name="zip" placeholder="Postcode/ZIP" />
+                {{form.zip_code}}
               </div>
               <div class="col-md-12 form-group">
-                <div class="creat_account">
-                  <!-- <h3>Shipping Details</h3>
+                <!-- <div class="creat_account">
+                  <h3>Shipping Details</h3>
                   <input type="checkbox" id="f-option3" name="selector" />
-                  <label for="f-option3">Ship to a different address?</label> -->
-                </div>
-                <textarea class="form-control" name="message" id="message" rows="1"
-                  placeholder="Order Notes"></textarea>
+                  <label for="f-option3">Ship to a different address?</label>
+                </div> -->
+                {{form.order_notes}}
               </div>
               <div class="col-md-12 form-group">
                 <p>PLEASE GO THROUGH THE INFORMATION ONCE AGAIN BEFORE YOU PROCEED</p>
@@ -135,8 +126,8 @@
                   <label for="f-option2">Good to go?</label>
                 </div>
               </div>
-
             </form>
+
           </div>
           <div class="col-lg-4">
             <div class="order_box">
@@ -189,23 +180,23 @@
                   <label for="f-option5">Cheque payments</label>
                   <div class="check"></div>
                 </div>
-                <p>Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
+                <p>Please send a cheque to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
               </div>
               <div class="payment_item active">
                 <div class="radion_btn">
                   <input type="radio" id="f-option6" name="selector" />
-                  <label for="f-option6">Paypal </label>
+                  <label for="f-option6">Cash on Delivery</label>
                   <!-- <img src="img/product/single-product/card.jpg" alt="" /> -->
                   <div class="check"></div>
                 </div>
-                <p>Please send a check to Store Name, Store Street</p>
+                <p>You are always welcome to pay us when we deliver your order to your place.</p>
               </div>
               <div class="creat_account">
                 <input type="checkbox" id="f-option4" name="selector" />
                 <label for="f-option4">I’ve read and accept the </label>
                 <a href="#">terms & conditions*</a>
               </div>
-              <a class="btn_3" href="#">Proceed to Paypal</a>
+              <a class="btn_3" href="{% url 'root:home' %}">Proceed to Checkout</a>
             </div>
           </div>
         </div>

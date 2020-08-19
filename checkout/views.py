@@ -3,7 +3,8 @@ from django.shortcuts import render, HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from cart.models import Cart
-from checkout.models import Order
+from checkout.models import Order, BillingAddress
+from checkout.forms import BillingDetailsForm
 
 # Create your views here.
 
@@ -29,10 +30,16 @@ def checkout(request):
     new_order.user = request.user
     new_order.save()
 
+    billing_form = BillingDetailsForm(request.POST or None)
+    if billing_form.is_valid():
+        new_billing_details = billing_form.save(commit=False)
+        new_billing_details.user = request.user
+        new_billing_details.save()
+
     if new_order.status == 'Delivered'or new_order.status == "Abandoned":
         del request.session['cart_id']
         del request.session['total_products']
         return HttpResponseRedirect(reverse('cart:cart'))
 
-    context = {}
+    context = {'form': billing_form}
     return render(request, 'checkout.html', context)
