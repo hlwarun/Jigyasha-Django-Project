@@ -82,17 +82,30 @@
                 <span class="placeholder" data-placeholder="Email Address"></span>
               </div>
               <div class="col-md-12 form-group p_star">
+                <p>Country * :</p>
                 <select class="country_select">
                   <option value="Nepal">Nepal</option>
                 </select>
               </div>
               <div class="col-md-12 form-group p_star">
-                <input type="text" class="form-control" id="city" name="district" />
-                <span class="placeholder" data-placeholder="Town/City"></span>
+                <p>Province * :</p>
+                <select class="country_select">
+                  <option value="01">01</option>
+                  <option value="02">02</option>\
+                  <option value="03">03</option>
+                  <option value="04">04</option>
+                  <option value="05">05</option>
+                  <option value="06">06</option>
+                  <option value="07">07</option>
+                </select>
               </div>
               <div class="col-md-12 form-group p_star">
                 <input type="text" class="form-control" id="city" name="city" />
                 <span class="placeholder" data-placeholder="District"></span>
+              </div>
+              <div class="col-md-12 form-group p_star">
+                <input type="text" class="form-control" id="city" name="district" />
+                <span class="placeholder" data-placeholder="Town/City"></span>
               </div>
               <div class="col-md-12 form-group p_star">
                 <input type="text" class="form-control" id="add1" name="street" />
@@ -101,31 +114,28 @@
               <div class="col-md-12 form-group">
                 <input type="text" class="form-control" id="company" name="add2" placeholder="Address Line 02" />
               </div>
-              <!-- <div class="col-md-12 form-group p_star">
-                <select class="country_select">
-                  <option value="1">District</option>
-                  <option value="2">District</option>
-                  <option value="4">District</option>
-                </select>
-              </div> -->
               <div class="col-md-12 form-group">
                 <input type="text" class="form-control" id="zip" name="zip" placeholder="Postcode/ZIP" />
               </div>
               <div class="col-md-12 form-group">
                 <div class="creat_account">
-                  <input type="checkbox" id="f-option2" name="selector" />
-                  <label for="f-option2">Create an account?</label>
-                </div>
-              </div>
-              <div class="col-md-12 form-group">
-                <div class="creat_account">
-                  <h3>Shipping Details</h3>
+                  <!-- <h3>Shipping Details</h3>
                   <input type="checkbox" id="f-option3" name="selector" />
-                  <label for="f-option3">Ship to a different address?</label>
+                  <label for="f-option3">Ship to a different address?</label> -->
                 </div>
                 <textarea class="form-control" name="message" id="message" rows="1"
                   placeholder="Order Notes"></textarea>
               </div>
+              <div class="col-md-12 form-group">
+                <p>PLEASE GO THROUGH THE INFORMATION ONCE AGAIN BEFORE YOU PROCEED</p>
+                <p>Check The Box Below If All Of The Information Is Correct</p>
+                <p></p>
+                <div class="creat_account">
+                  <input type="checkbox" id="f-option2" name="selector" />
+                  <label for="f-option2">Good to go?</label>
+                </div>
+              </div>
+
             </form>
           </div>
           <div class="col-lg-4">
@@ -164,7 +174,7 @@
                 </li>
                 <li>
                   <a href="#">Shipping
-                    <span>Flat rate: $50.00</span>
+                    <span>$50.00</span>
                   </a>
                 </li>
                 <li>
@@ -176,25 +186,19 @@
               <div class="payment_item">
                 <div class="radion_btn">
                   <input type="radio" id="f-option5" name="selector" />
-                  <label for="f-option5">Check payments</label>
+                  <label for="f-option5">Cheque payments</label>
                   <div class="check"></div>
                 </div>
-                <p>
-                  Please send a check to Store Name, Store Street, Store Town,
-                  Store State / County, Store Postcode.
-                </p>
+                <p>Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
               </div>
               <div class="payment_item active">
                 <div class="radion_btn">
                   <input type="radio" id="f-option6" name="selector" />
                   <label for="f-option6">Paypal </label>
-                  <img src="img/product/single-product/card.jpg" alt="" />
+                  <!-- <img src="img/product/single-product/card.jpg" alt="" /> -->
                   <div class="check"></div>
                 </div>
-                <p>
-                  Please send a check to Store Name, Store Street, Store Town,
-                  Store State / County, Store Postcode.
-                </p>
+                <p>Please send a check to Store Name, Store Street</p>
               </div>
               <div class="creat_account">
                 <input type="checkbox" id="f-option4" name="selector" />

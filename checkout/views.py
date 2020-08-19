@@ -1,11 +1,13 @@
 import secrets
 from django.shortcuts import render, HttpResponseRedirect
 from django.urls import reverse
+from django.contrib.auth.decorators import login_required
 from cart.models import Cart
 from checkout.models import Order
 
 # Create your views here.
 
+@login_required
 def checkout(request):
     try:
        new_id = request.session['cart_id']
@@ -23,6 +25,9 @@ def checkout(request):
         new_order.tax_price = cart.shipping_price
         new_order.total_price = cart.total_price
         new_order.save()
+
+    new_order.user = request.user
+    new_order.save()
 
     if new_order.status == 'Delivered'or new_order.status == "Abandoned":
         del request.session['cart_id']

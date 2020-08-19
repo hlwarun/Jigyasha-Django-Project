@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 from django.contrib.auth import get_user_model
 from cart.models import Cart
 
@@ -27,3 +28,23 @@ class Order(models.Model):
 
     def __str__(self):
         return self.order_id
+
+class BillingAddress(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    first_name = models.CharField(max_length=25)
+    last_name = models.CharField(max_length=25)
+    company_name = models.CharField(max_length=75, blank=True, null=True)
+    phone = models.CharField(max_length=15)
+    email = models.EmailField()
+    country = models.CharField(max_length=10, default='Nepal')
+    province = models.CharField(max_length=10)
+    district = models.CharField(max_length=25, blank=True, null=True)
+    city = models.CharField(max_length=25)
+    address_line_01 = models.CharField(max_length=25)
+    address_line_02 = models.CharField(max_length=25, blank=True, null=True)
+    zip_code = models.CharField(max_length=10)
+    order_notes = models.TextField(blank=True, null=True)
+    date_added = date_added = models.DateTimeField(auto_now_add=True, auto_now=False)
+
+    def __str__(self):
+        return self.user.username
