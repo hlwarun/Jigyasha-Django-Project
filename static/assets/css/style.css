@@ -250,6 +250,12 @@ p {
   transition: all 0.3s ease-out 0s;
 }
 
+.search-buttons {
+  padding: 0;
+  border: none;
+  background: none;
+}
+
 /* line 53, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_common.scss */
 .f-left {
   float: left;

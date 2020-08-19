@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+
+  {% block content %}
+
+<!-- Latest Products Start -->
+<p style="padding-top:50px;"></p>
+<section class="latest-product-area padding-bottom">
+    <div class="container">
+        <div class="row product-btn d-flex justify-content-end align-items-end">
+            <!-- Section Tittle -->
+            <div class="col-xl-4 col-lg-5 col-md-5">
+                <div class="section-tittle mb-30">
+                    <h5>Search results for : {{q}}</h5>
+                </div>
+            </div>
+            <div class="col-xl-8 col-lg-7 col-md-7"></div>
+        </div>
+        <!-- Nav Card -->
+        <div class="tab-content" id="nav-tabContent">
+            <!-- card one -->
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div class="row">
+
+                    {% for product in filtered_list %}
+                      <div class="col-xl-4 col-lg-4 col-md-6">
+                          <div class="single-product mb-60">
+                              <div class="product-img">
+                                  <img src="{{product.cover_image.url}}" alt="">
+                                  <!-- <div class="new-product">
+                                      <span>New</span>
+                                  </div> -->
+                              </div>
+                              <div class="product-caption">
+                                  <div class="product-ratting">
+                                      <i class="far fa-star"></i>
+                                      <i class="far fa-star"></i>
+                                      <i class="far fa-star"></i>
+                                      <i class="far fa-star"></i>
+                                      <i class="far fa-star low-star"></i>
+                                  </div>
+                                  <h4><a href="{% url 'shop:detail' product.slug %}">{{product.title}}</a></h4>
+                                  <div class="price">
+                                      <ul>
+                                          <li>${{product.new_price}}</li>
+                                          <li class="discount">${{product.old_price}}</li>
+                                      </ul>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+        <!-- End Nav Card -->
+    </div>
+</section>
+<!-- Latest Products End -->
+<!-- Best Product Start -->
+<div class="best-product-area lf-padding" >
+   <div class="product-wrapper bg-height" style="background-image: url('{% static './assets/img/categori/card.png' %}')">
+        <div class="container position-relative">
+            <div class="row justify-content-between align-items-end">
+                <div class="product-man position-absolute  d-none d-lg-block">
+                    <img src="{% static './assets/img/categori/card-man.png' %}" alt="">
+                </div>
+                <div class="col-xl-2 col-lg-2 col-md-2 d-none d-lg-block">
+                    <div class="vertical-text">
+                        <span>SHOES</span>
+                    </div>
+                </div>
+                <div class="col-xl-8 col-lg-8">
+                    <div class="best-product-caption">
+                        <h2>Find The Best Product<br> from Our Shop</h2>
+                        <p>The Largest Online Foot-Wear Collection of the country.</p>
+                        <a href="{% url 'shop:product' %}" class="black-btn">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+   </div>
+   <!-- Shape -->
+   <div class="shape bounce-animate d-none d-md-block">
+       <img src="{% static './assets/img/categori/card-shape.png' %}" alt="">
+   </div>
+</div>
+<!-- Best Product End-->
+
+  {% endblock %}
